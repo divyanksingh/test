@@ -11,7 +11,7 @@
     var pusher = new Pusher('f551b10cd27037eee4e8');
     var channel = pusher.subscribe('test_channel');
     channel.bind('my_event', function(data) {
-     var elem = document.getElementById("t1")
+     var elem = document.getElementById("t3")
      elem.value = data.message
     });
   </script>    
@@ -19,7 +19,7 @@
   <body>
     <h1>Hello</h1>
     <form>
-       <input type="text" id="t1"/>
+       <input type="text" id="t3"/>
 
     </form>
     <div>
