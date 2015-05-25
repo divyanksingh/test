@@ -1,0 +1,35 @@
+<html>
+  <head>
+    {% if title %}
+        <title>{{ title }}</title>
+     {% else %}
+        <title>Welcome Friends</title>
+     {% endif %}  
+     <script src="//js.pusher.com/2.2/pusher.min.js"></script>
+  <script>    
+
+    var pusher = new Pusher('f551b10cd27037eee4e8');
+    var channel = pusher.subscribe('test_channel');
+    channel.bind('my_event', function(data) {
+     var elem = document.getElementById("t1")
+     elem.value = data.message
+    });
+  </script>    
+  </head>  
+  <body>
+    <h1>Hello</h1>
+    <form>
+       <input type="text" id="t1"/>
+
+    </form>
+    <div>
+    <a href="/divyank"><img src="/static/divyank.jpg" alt="HTML tutorial" style="width:42px;height:42px;border:0"></a>
+    <a href="/gyanendra"><img src="/static/gyanendra.jpg" alt="HTML tutorial" style="width:42px;height:42px;border:0"></a>
+    <a href="/abhinav"><img src="/static/abhinav.jpg" alt="HTML tutorial" style="width:42px;height:42px;border:0"></a>
+    <a href="/pawan"><img src="/static/pawan.jpg" alt="HTML tutorial" style="width:42px;height:42px;border:0"></a>
+    </div>
+    <div>
+    	{% block dstest %}{% endblock %}
+    </div>
+  </body>
+</html>

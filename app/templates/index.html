@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block dstest %}
+<ul>
+	<li>hello</li>
+	<li>bol</li>
+	<li>ke</li>
+</ul>
+<ol>
+	<li>jai</li>
+	<li>mata</li>
+	<li>di</li>
+</ol>
+{% for elem in friends %}
+<h2>{{elem}}</h2>
+{% endfor %}
+<p>love u ....</p>
+{% endblock %}
