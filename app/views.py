@@ -1,5 +1,6 @@
+import tasks
 from app import app
-from flask import render_template
+from flask import render_template,request
 @app.route('/')
 @app.route('/index')
 def index():
@@ -12,15 +13,19 @@ def index():
 def pp():
 	user = {'nickname': 'Divyank'}  # fake user
 	title = "friends"
-	friends = ["pp1","pp2","pp3","pp4"]
+	val = tasks.add_together_pawan.delay(5,6)
+	friends = ["pp1","pp2","pp3","pp4",val]
 	return render_template("index.html",friends = friends)
 
-@app.route('/abhinav')
+@app.route('/abhinav/', methods=['POST'])
 def abhi():
+	username = request.form["username"]
+	password = request.form ["password"]
 	user = {'nickname': 'Divyank'}  # fake user
 	title = "friends"
-	friends = ["aa1","aa2","aa3","aa4"]
+	friends = ["aa1","aa2","aa3","aa4", username, password]
 	return render_template("index.html",friends = friends)
+	#return str(friends)
 
 @app.route('/divyank')
 def ds():
